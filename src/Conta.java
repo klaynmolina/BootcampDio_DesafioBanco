@@ -27,17 +27,27 @@ public abstract class Conta implements InterfaceConta {
 
 	@Override
 	public void deposito(double valor) {
-		
+		this.saldo = this.saldo + valor;
+		//saldo += valor;
 	}
 
 	@Override
 	public void saque(double valor) {
-		
+		this.saldo = this.saldo - valor;
+		//saldo -= valor;
 	}
 
 	@Override
 	public void transferencia(Conta destinatario, double valor) {
-		
+		this.saldo = this.saldo - valor; //this.saque(valor);
+		destinatario.saldo = destinatario.saldo + valor; //destinatario.deposito(valor);
 	}
+	
+	protected void InfoComum() {
+		System.out.println(String.format("Agencia: %d", agencia));
+		System.out.println(String.format("Conta: %d", numeroConta));
+		System.out.println(String.format("Saldo: %.2f", saldo));
+	}
+	
 
 }

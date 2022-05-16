@@ -6,5 +6,7 @@ public interface InterfaceConta {
 	void saque(double valor);
 
 	void transferencia(Conta destinatario, double valor);
+	
+	void extrato();
 
 }
