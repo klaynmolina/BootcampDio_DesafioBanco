@@ -1,9 +1,17 @@
 
 public abstract class Conta implements InterfaceConta {
 
-	private int agencia;
-	private int numeroConta;
-	private double saldo;
+	protected int agencia;
+	protected int numeroConta;
+	protected double saldo;
+	
+	private static final int AGENCIA_PADRAO = 1;
+	private static int SEQUENCIAL = 1;
+	
+	public Conta() {
+		this.agencia = AGENCIA_PADRAO;
+		this.numeroConta = SEQUENCIAL++;
+	}
 
 	public int getAgencia() {
 		return agencia;
@@ -19,19 +27,16 @@ public abstract class Conta implements InterfaceConta {
 
 	@Override
 	public void deposito(double valor) {
-
 		
 	}
 
 	@Override
 	public void saque(double valor) {
-
 		
 	}
 
 	@Override
 	public void transferencia(Conta destinatario, double valor) {
-
 		
 	}
 
