@@ -1,16 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@EqualsAndHashCode
+@RequiredArgsConstructor
 public class Banco {
 	
+	@Getter @Setter @NonNull
 	private String nome;
-	protected List<Conta> contas = new ArrayList<>();
-	public List<Cliente> clientes = new ArrayList<>();
+	
+	public List<Conta> contas = new ArrayList<>();	
+	public List<Cliente> clientes = new ArrayList<>();	
 	public List<Conta> completa = new ArrayList<>();
 	
-	public Banco(String nome) {
-		this.nome = nome;
-	}
 
 	public void ListaClientes() {
 		System.out.println("***LISTA DE CLIENTES***");
@@ -47,12 +54,8 @@ public class Banco {
 		this.clientes.add(cliente);
 	}
 
-	public String getNome() {
-		return nome;
+	@Override
+	public String toString() {
+		return "Banco: " + nome;
 	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
 }

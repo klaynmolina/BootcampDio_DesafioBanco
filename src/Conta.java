@@ -1,10 +1,18 @@
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
+@Getter
+@EqualsAndHashCode
 public abstract class Conta implements InterfaceConta {
 
-	protected Banco banco;
 	protected Cliente cliente;
+	
+	protected Banco banco;
+	
 	protected int agencia;
+	
 	protected int numeroConta;
+	
 	protected double saldo;
 	
 	private static final int AGENCIA_PADRAO = 1;
@@ -17,27 +25,6 @@ public abstract class Conta implements InterfaceConta {
 		this.banco = banco;
 	}
 	
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public Banco getBanco() {
-		return banco;
-	}
-	
-	public int getAgencia() {
-		return agencia;
-	}
-
-	public int getNumeroConta() {
-		return numeroConta;
-	}
-
-	public double getSaldo() {
-		return saldo;
-	}
-	
-
 	@Override
 	public void deposito(double valor) {
 		this.saldo = this.saldo + valor;
@@ -62,5 +49,5 @@ public abstract class Conta implements InterfaceConta {
 		System.out.println(String.format("Conta: %d", numeroConta));
 		System.out.println(String.format("Saldo: %.2f", saldo));
 	}
-
+	
 }
